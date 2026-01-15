@@ -3,7 +3,7 @@ name = "reqwless"
 version = "0.14.0"
 edition = "2024"
 resolver = "2"
-rust-version = "1.91"
+rust-version = "1.90"
 description = "HTTP client for embedded devices"
 documentation = "https://docs.rs/reqwless"
 readme = "README.md"
@@ -34,9 +34,7 @@ p256 = { version = "0.13", default-features = false, features = [
 embedded-tls = { version = "0.18", default-features = false, features = ["rustpki"], optional = true }
 rand_chacha = { version = "0.3", default-features = false }
 nourl = "0.1.2"
-esp-mbedtls = { version = "0.1", git = "https://github.com/esp-rs/esp-mbedtls.git", features = [
-    "async",
-], optional = true }
+esp-mbedtls = { git = "https://github.com/esp-rs/esp-mbedtls.git", branch = "share-certs", optional = true }
 
 [dev-dependencies]
 hyper = { version = "0.14.23", features = ["full"] }
