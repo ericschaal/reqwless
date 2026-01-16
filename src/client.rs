@@ -36,13 +36,9 @@ where
 
 /// Type for TLS configuration of HTTP client.
 #[cfg(feature = "esp-mbedtls")]
-pub struct TlsConfig<'a, const RX_SIZE: usize = 4096, const TX_SIZE: usize = 4096> {
-    /// Minimum TLS version for the connection
-    version: crate::TlsVersion,
-
+pub struct TlsConfig<'a> {
     /// Client certificates. See [esp_mbedtls::ClientSessionConfig]
     certificates: crate::ClientSessionConfig<'a>,
-
     /// A reference to instance of the MbedTLS library.
     tls_reference: esp_mbedtls::TlsReference<'a>,
 }
@@ -115,14 +111,9 @@ impl<'a> TlsConfig<'a> {
 }
 
 #[cfg(feature = "esp-mbedtls")]
-impl<'a, const RX_SIZE: usize, const TX_SIZE: usize> TlsConfig<'a, RX_SIZE, TX_SIZE> {
-    pub fn new(
-        version: crate::TlsVersion,
-        certificates: crate::ClientSessionConfig<'a>,
-        tls_reference: crate::TlsReference<'a>,
-    ) -> Self {
+impl<'a> TlsConfig<'a> {
+    pub fn new(certificates: crate::ClientSessionConfig<'a>, tls_reference: crate::TlsReference<'a>) -> Self {
         Self {
-            version,
             certificates,
             tls_reference,
         }
