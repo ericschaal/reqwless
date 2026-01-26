@@ -34,7 +34,7 @@ p256 = { version = "0.13", default-features = false, features = [
 embedded-tls = { version = "0.18", default-features = false, features = ["rustpki"], optional = true }
 rand_chacha = { version = "0.3", default-features = false }
 nourl = "0.1.2"
-esp-mbedtls = { git = "https://github.com/ericschaal/esp-mbedtls.git", rev = "af89cee3fa03119639ccf7d28b475a482633acc6", branch = "main", optional = true }
+esp-mbedtls = { git = "https://github.com/ericschaal/esp-mbedtls.git", rev = "af89cee3fa03119639ccf7d28b475a482633acc6", optional = true }
 
 [dev-dependencies]
 hyper = { version = "0.14.23", features = ["full"] }
